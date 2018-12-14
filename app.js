@@ -1,50 +1,45 @@
 "use strict"
 
-let user = {};
+// Session exercises 10
 
-user.name = "John";
-user.surname = "smith";
-delete user.name;
+let loddaer = {
+  step : 0,
+  up() {
+    this.step++;
+    return this;
+  },
+  down() {
+    this.step--;
+    return this;
+  },
+  showStep: function() {
+    alert(this.step);
+  }
+};
+
+console.log(loddaer.up().up().down().showStep());
+
+// Session exercises 11
+let num1 = Number(prompt("enter a number"));
+let num2 = Number(prompt("enter a number"));
+
+alert(num2 + num1);
 
 // task2
-let schedule = {};
+let number = {};
+let sum = 0;
+let num = 0;
 
-function isEmpty(schedule) {
-  for (let prop in schedule) {
-      return false;
-    }  
-      return true;
-}
-// task3
-let salaries = {
-  John: 100,
-  Ann: 160,
-  Pete: 130
-};
-
-function addProp(salaries) {
-  let s = 0;
-  for (let prop in salaries) {
-    if ( (typeof salaries[prop]) === "number") {
-      s += salaries[prop];
-    }
-  } 
-  return s;
+function readNumber() {
+  do {
+    num = +prompt("enter a number");
+    number[num] = num;
+  } while(num) 
+  for (let prop in number) {
+    sum += number[prop];
+  }
+  return sum;
 }
 
-// task 4
-let menu = {
-  width: 200,
-  height: 300,
-  title: "my menu"
-};
+alert(readNumber());
 
-function multiplyNumeric(menu) {
-  let number = "number";
-  for (let prop in menu) {
-    if ( (typeof menu[prop]) === number) {
-      menu[prop] = menu[prop]*2;
-    }
-  } 
-  return menu;
-}
