@@ -4,15 +4,15 @@ var assert = require('assert');
     let calculator = new Calculator(); 
     it('read a number from the input', function() {
       calculator.read(9);
-      assert.strictEqual(calculator.num, 9)
+      assert.strictEqual(calculator.num, 9);
     });
     it('should add 2 to the previous number', function() {
       calculator.sum(9);
-      assert.strictEqual(calculator.num, 18)
+      assert.strictEqual(calculator.num, 18);
     });
-    it('should multipy 2 to the previous number', function() {
+    it('should multiply 2 to the previous number', function() {
       calculator.mul(9);
-      assert.strictEqual(calculator.num, 162)
+      assert.strictEqual(calculator.num, 162);
     });
   });
 
@@ -36,8 +36,11 @@ describe('Accumulator', function() {
     assert.strictEqual(accumulator.num, 9)
   });
   it('should add 2 to the previous number', function() {
-    accumulator.value;
-    assert.strictEqual(accumulator.value, 10)
+    assert.strictEqual(accumulator.value, 10);
+  });
+  it('adds -2 to the previous number', () => {
+    accumulator.read(-2);
+    assert.strictEqual(accumulator.value, 8);
   });
 });
 

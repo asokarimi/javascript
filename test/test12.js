@@ -7,18 +7,26 @@ var assert = require('assert');
   });
 
 function ucFirst(input) {
-  let first = input[0].toUpperCase() + input.substr(1, input.length);
-
-  return first;
+  return input[0].toUpperCase() + input.substr(1, input.length);
 }
+
 // task2
 describe('truncate', function() {
   it('truncate to 20 characters', function() {
     assert.strictEqual(truncate("what I'd like to tell on this", 20), "what I'd like to te...");
   });
+
+  it("doesn't change the input string if it's length is less than 20", () => {
+    assert.strictEqual(truncate("Hello there!", 20), "Hello there!");
+  });
+
+  it("truncates input string in 5 letters", () => {
+    assert.strictEqual(truncate("Hello there!", 5), "Hello...");
+  });
 });
 
-function truncate(string, num) {
+
+function truncate(string, num) { // you've defined num but never used it. it always truncate by 20
   let first = string.slice(0, 19);
 
   if (string.length > 20) {
@@ -51,6 +59,9 @@ function extractCurrencyValue(string) {
 describe('getMaxSubSum', function() {
   it('Get the biggest amount', function() {
     assert.strictEqual(getMaxSubSum([-1, 2, 3, -4]), 5);
+  });
+  it("Get the max sum sequence for [2, -1, 2, 1, -4]", () => {
+    assert.strictEqual(getMaxSubSum([2, -1, 2, 1, -4]), 4);
   });
 });
 
