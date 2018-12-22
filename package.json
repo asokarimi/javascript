@@ -5,8 +5,6 @@
   "main": "task1.js",
   "scripts": {
     "test": "mocha",
-    "test10": "mocha",
-    "test11": "mocha",
     "test12": "mocha",
     "dev": "webpack",
     "watch": "npm run dev -- --watch"
