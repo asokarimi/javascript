@@ -1,70 +1,53 @@
 "use strict"
+// task11
+let operator = [];
+let func = [];
 
-// Session exercises 10
-let loddaer = {
-  step : 0,
-  up() {
-    this.step++;
-    return this;
-  },
-  down() {
-    this.step--;
-    return this;
-  },
-  showStep: function() {
-    alert(this.step);
+function Calculator() {
+  this.addMethod = function(input1, input2) {
+    operator.push(input1);
+    func.push(input2);
   }
-};
+  this.calculator = function(input) {
+    let result= 0;
 
-console.log(loddaer.up().up().down().showStep());
+    for (let i = 0; i< input.length; i++) {
+      if (operator.includes(input[i])) { 
+        let a = Number(input[i-1]);
+        let b = Number(input[i+1]);
+         result = func[operator.indexOf(input[i])];
+         return result(a,b);
+      }
 
-// Session exercises 11
-let num1 = Number(prompt("enter a number"));
-let num2 = Number(prompt("enter a number"));
+    }
+  }
+}
+let calc = new Calculator;
+let powerCal = new Calculator;
+powerCal.addMethod("*", (a, b) => a * b);
+console.log(calc.calculator("2*4"));
 
-alert(num2 + num1);
 
 // task2
-let number = {};
-let sum = 0;
-let num = 0;
+let John = {name: "John", age: 25};
+let Pete = {name: "Pete", age: 30};
+let Mary = {name: "Mary", age: 28};
+let users = [John, Pete, Mary];
+let names = users.map(value => value.name).join(", ");
 
-function readNumber() {
-  do {
-    num = +prompt("enter a number");
-    number[num] = num;
-  } while(num) 
-  for (let prop in number) {
-    sum += number[prop];
-  }
-  return sum;
-}
-
-alert(readNumber());
+console.log(names);
 
 // task3
-function random1(num1, num2) {
-  let number = 0;
+let John = {name: "John", surname: "Smit", id:1};
+let Pete = {name: "Pete", surname: "Hunt", id: 2};
+let Mary = {name: "Mary", surname: "Key", id:3};
+let users = [John, Pete, Mary];
 
-  return number = num1 + Math.random() * (num2 -1);  
-}
-console.log(random1(1, 5));
+let names = users.map(function(value) {
+  let arr = {};
+  arr.fullname = value.name + " " + value.surname;
+  arr.id = value.id;
+  return arr;
+});
 
-// task4
-function random1(num1, num2) {
-  let number = 0;
-  
-  number = num1 +  Math.random() * (num2 -1);
-  return  parseInt(number);
-}
-console.log(random1(1, 5));
-
-// Session exercises 12
-let styles = ["jaz", "Blues"];
-styles.push("Rock-n-Roll");
-
-function center(input) {
- return Math.floor((input.length/2));
-}
-styles[center(styles)] = "Calssic";
-console.log(styles);
+console.log(names);
