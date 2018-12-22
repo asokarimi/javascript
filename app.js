@@ -1,5 +1,5 @@
 "use strict"
-// task11
+// task1
 let operator = [];
 let func = [];
 
