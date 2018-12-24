@@ -8,7 +8,10 @@ var assert = require('assert');
     it('Removal - from the phrase -background-color', function() { 
       assert.strictEqual(camelize("-background-color"), "BackgroundColor");
     });
-    
+
+    it('Changes -webkit-tranition-delay to WebkitTransitionDelay', () => {
+      assert.strictEqual(camelize('-webkit-transition-delay'), 'WebkitTransitionDelay');
+    });
   });
 
 function camelize(string) {
@@ -27,7 +30,6 @@ describe('filterRange', function() {
   it('The numbers are between 1 and 4', function() {
     assert.strictEqual(filterRange([1, 3, 5, 4, 6], 1, 4), [1, 3, 4]);
   });
-
 });
 
 function filterRange(arr, num1, num2) {
